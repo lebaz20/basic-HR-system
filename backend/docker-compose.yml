@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    image: node:lts
+    ports:
+      - 3001:3001
+      - 3000:3000
+    volumes:
+      - ../:/var/www/html
+    working_dir: /var/www/html/backend
+    command: yarn start
+    depends_on:
+      - database
+  database:
+    image: mysql:5
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: hr
