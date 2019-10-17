@@ -5,9 +5,10 @@
 import debug from "debug";
 import http from "http";
 
-import app from "../app";
+import app from "../App";
 
 debug("basic-hr-system:backend");
+require("dotenv").config();
 
 /**
  * Normalize a port into a number, string, or false.
